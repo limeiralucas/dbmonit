@@ -1,0 +1,44 @@
+[default]
+DEBUG = false
+CSRF_ENABLED = true
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+TITLE = "DBMonit"
+FLASK_ADMIN_NAME = "DBMonit Admin"
+FLASK_ADMIN_TEMPLATE_MODE = "bootstrap3"
+
+EXTENSIONS = [ 
+    "dbmonit.ext.database:init_app",
+    "dbmonit.ext.commands:init_app",
+    "dbmonit.ext.appearance:init_app",
+    "dbmonit.ext.log:init_app",
+    "dbmonit.ext.token:init_app", 
+    "dbmonit.ext.auth:init_app",
+    "dbmonit.ext.admin:init_app",
+    "dbmonit.blueprints.restapi:init_app",
+]
+
+[development]
+DEVELOPMENT = true
+DEBUG = true
+SQLALCHEMY_TRACK_MODIFICATIONS = true
+SQLALCHEMY_DATABASE_URI="mysql://root@localhost/dbmonit_db"
+JWT_SECRET_KEY = "s3cr3t"
+
+[staging]
+DEVELOPMENT = true
+DEBUG = true
+
+[testing]
+DEBUG = true
+TESTING = true 
+SQLALCHEMY_TRACK_MODIFICATIONS = true 
+SQLALCHEMY_DATABASE_URI="postgresql://localhost/fb_test"
+JWT_SECRET_KEY = "s3cr3t"
+
+[ci]
+SQLALCHEMY_DATABASE_URI="postgresql://postgres:postgres@localhost:5432/fb_test"
+JWT_SECRET_KEY = "s3cr3t" 
+
+[production]
+DEBUG = false 
+SQLALCHEMY_DATABASE_URI="postgresql://flaskblueprint:flaskblueprint@localhost:5432/fb"
