@@ -12,14 +12,14 @@ We made a `makefile` to help you with you setup project. Check the file to see a
 $ virtualenv -p python3 env
 $ source env/bin/activate
 # pyenv
-$ pyenv virtualenv 3.7.4 flaskblueprint
-$ pyenv activate flaskblueprint
+$ pyenv virtualenv 3.7.4 dbmonit
+$ pyenv activate dbmonit
 ```
 
 ### install requirements
 
 ```
-$ cd flaskblueprint
+$ cd dbmonit
 $ pip install -r requirements-dev.txt
 ```
 
@@ -34,11 +34,11 @@ $ touch .env
 add the env vars:
 
 ```
-FLASK_APP=flaskblueprint.app
+FLASK_APP=dbmonit.app
 FLASK_ENV='development'
 FLASK_DEBUG=1
 SECRET_KEY="s3cr3t"
-DATABASE_URL="postgresql://localhost/flaskblueprint_db"
+DATABASE_URL="mysql://localhost/dbmonit_db"
 ```
 
 ### migrate
@@ -49,7 +49,7 @@ $ psql -U postgres
 psql (11.4)
 Type "help" for help.
 
-postgres=# create database flaskblueprint_db
+postgres=# create database dbmonit_db
 $ flask db migrate
 $ flask db upgrade
 ```
