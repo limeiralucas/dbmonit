@@ -10,7 +10,7 @@ dynaconf==2.2.1
 passlib==1.7.2 
 marshmallow==3.3.0
 marshmallow-enum==1.5.1
-requests==2.22.0
+requests==2.31.0
 flask-crontab==0.1.1
 Flask-Admin==1.5.4
 Flask-Bootstrap==3.3.7.1
